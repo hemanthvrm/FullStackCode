@@ -10,6 +10,8 @@ require("./services/passport");
 mongoose.connect(keys.mongoURI);
 
 const app = express();
+
+//App level middlewares
 app.use(bodyParser.json());
 app.use(
   cookieSession({
@@ -20,6 +22,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Route handlers
 require("./routes/demoRoutes")(app);
 require("./routes/authRoutes")(app);
 
