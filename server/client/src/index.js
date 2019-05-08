@@ -1,4 +1,3 @@
-import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
@@ -7,24 +6,21 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reduxThunk from "redux-thunk";
-
-import reducers from "./reducers";
+import Root from "./Root";
+import history from "./components/history";
 import App from "./components/App";
 import errorPage from "./components/404/404";
 
-const store = createStore(reducers, applyMiddleware(reduxThunk));
-
 ReactDOM.render(
-  <Provider store={store}>
+  <Root>
     <Router>
-      <Switch>
-        <Route path="/" exact component={errorPage} />
-        <Route path="/:someParam" component={errorPage} />
+      <Switch history={history}>
+        <App>
+          <Route path="/" exact component={home} />
+          <Route path="/:someParam" component={errorPage} />
+        </App>
       </Switch>
     </Router>
-  </Provider>,
+  </Root>,
   document.querySelector("#root")
 );
