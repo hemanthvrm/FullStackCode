@@ -6,25 +6,29 @@
     "antd": "3.16.6",
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
+    "history": "4.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "^7.0.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^1.1.4",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "source-map-explorer": "1.6.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "analyze": "source-map-explorer build/static/js/main.*"
   },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/src/setupTests.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
@@ -75,6 +79,8 @@
     "css-loader": "0.28.7",
     "dotenv": "4.0.0",
     "dotenv-expand": "4.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^4.10.0",
     "eslint-config-react-app": "2.1.0",
     "eslint-loader": "1.9.0",
@@ -91,6 +97,7 @@
     "less": "2.7.2",
     "less-loader": "4.1.0",
     "less-vars-to-js": "1.2.1",
+    "moxios": "^0.4.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
