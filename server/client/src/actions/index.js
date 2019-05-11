@@ -9,3 +9,12 @@ export const fetchUser = () => async dispatch => {
 
   dispatch({ type: CHECK_USER, payload: res.data });
 };
+
+export const googleAuth = () => async dispatch => {
+  let testingAuth = "http://localhost:3000/auth/google";
+  const res = await axios.get(testingAuth);
+};
+
+export const fbAuth = () => async dispatch => {
+  const res = await axios.get(`${AUTH_URL}/facebook`);
+};
