@@ -1,4 +1,5 @@
 const express = require("Express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
@@ -12,6 +13,8 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 
 //App level middlewares
+app.use(cors());
+app.options("*", cors());
 app.use(bodyParser.json());
 app.use(
   cookieSession({
